@@ -71,9 +71,10 @@
         var tlc = $(tl).children();
         $(tlc).each(function(){
           $(this).remove();
-          console.log();
         });
+        console.log('clicked');
         movies = [];
+        plots=[];
         var searchTerms = $('#search').val();
         var temp = searchTerms.split(' ');
         var searchTerms2 = temp.join('+');
@@ -81,7 +82,7 @@
         // console.log(`http://www.omdbapi.com/?s=${searchTerms2}&y=&plot=short&r=json`);
         $.get(`https://www.omdbapi.com/?s=${searchTerms2}&y=&plot=short&r=json`, function(){})
         .done(function(data){
-          // console.log('data', data);
+          console.log('data', data);
           // console.log('# results returned', data.Search.length);
           // console.log(data[i]['imdbID']);
           for (var i = 0; i < data.Search.length; i++) {
